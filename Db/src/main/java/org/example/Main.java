@@ -13,15 +13,14 @@ import java.sql.*;
 public class Main {
     public static void main(String[] args) throws SQLException {
 
-        EntityManagerProvider.initialize();
+        EntityManager entityManager =  EntityManagerProvider.getEntityManager();
 
-        EntityManager entityManager = EntityManagerProvider.getEntityManager();
         TeacherService personService = new TeacherServiceImpl(entityManager);
 
 
         Teacher teacherDto = new Teacher();
-        teacherDto.setFirstName("Brad");
-        teacherDto.setLastName("Pitt");
+        teacherDto.setFirstName("Test");
+        teacherDto.setLastName("Test");
         personService.createTeacher(teacherDto);
 
 

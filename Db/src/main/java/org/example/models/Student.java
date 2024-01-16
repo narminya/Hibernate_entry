@@ -5,12 +5,12 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.UUID;
 
-@Entity
-@Table(name = "students")
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+//@Entity
+//@Table(name = "students")
+//@Data
+//@Builder
+//@NoArgsConstructor
+//@AllArgsConstructor
 public class Student {
 
     @Id

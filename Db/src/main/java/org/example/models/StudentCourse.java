@@ -6,12 +6,12 @@ import javax.persistence.*;
 import java.util.UUID;
 
 
-@Entity
-@Table(name = "enrollment")
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+//@Entity
+//@Table(name = "enrollment")
+//@Data
+//@Builder
+//@NoArgsConstructor
+//@AllArgsConstructor
 public class StudentCourse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

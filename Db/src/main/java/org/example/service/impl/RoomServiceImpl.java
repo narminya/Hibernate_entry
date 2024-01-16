@@ -23,9 +23,9 @@ public class RoomServiceImpl implements RoomService {
             transaction = entityManager.getTransaction();
             transaction.begin();
 
-            Classroom room = new Classroom();
-           room.setRoomNumber(classroomDto.getRoomNumber());
-            entityManager.merge(room);
+//            Classroom room = new Classroom();
+//           room.setRoomNumber(classroomDto.getRoomNumber());
+//            entityManager.merge(room);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null && transaction.isActive()) {

@@ -16,7 +16,7 @@ import java.util.UUID;
 public class Teacher {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy  = GenerationType.AUTO)
     private UUID teacherID;
 
     @Column(name = "first_name")

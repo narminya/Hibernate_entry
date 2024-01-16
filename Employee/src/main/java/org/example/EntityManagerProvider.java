@@ -1,10 +1,10 @@
-package org.example.utils;
+package org.example;
 
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class EntityManagerProvider {
+
 
     private static final String PERSISTENCE_UNIT_NAME = "org.example.testing";
 
@@ -18,7 +18,7 @@ public class EntityManagerProvider {
         }
     }
 
-    public static EntityManager getEntityManager() {
+    public static javax.persistence.EntityManager getEntityManager() {
         try {
             return entityManagerFactory.createEntityManager();
         } catch (Exception e) {

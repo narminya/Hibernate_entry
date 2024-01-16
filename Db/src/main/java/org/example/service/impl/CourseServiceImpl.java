@@ -24,12 +24,12 @@ public class CourseServiceImpl implements CourseService {
             transaction = entityManager.getTransaction();
             transaction.begin();
 
-            Course course = new Course();
-            course.setCourseName(course.getCourseName());
-            course.setTeacher(courseDto.getTeacher());
-            course.setRooms(courseDto.getRooms());
-
-            entityManager.merge(course);
+//            Course course = new Course();
+//            course.setCourseName(course.getCourseName());
+//            course.setTeacher(courseDto.getTeacher());
+//            course.setRooms(courseDto.getRooms());
+//
+//            entityManager.merge(course);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null && transaction.isActive()) {
