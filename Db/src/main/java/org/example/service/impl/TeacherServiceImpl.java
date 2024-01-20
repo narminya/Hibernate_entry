@@ -1,5 +1,6 @@
 package org.example.service.impl;
 
+import org.example.models.Course;
 import org.example.models.Teacher;
 import org.example.service.TeacherService;
 
@@ -24,11 +25,19 @@ public class TeacherServiceImpl implements TeacherService {
             transaction.begin();
 
             Teacher teacher = new Teacher();
-            teacher.setLastName(teacherDto.getLastName());
-            teacher.setFirstName(teacherDto.getFirstName());
+            teacher.setName(teacherDto.getName());
+            teacher.setCourse(teacherDto.getCourse());
 
-            entityManager.merge(teacher);
+            entityManager.persist(teacher);
+
+            if (teacherDto.getCourse() != null) {
+                for (Course course : teacherDto.getCourse()) {
+                    course.setTeacher(teacher);
+                    entityManager.persist(course);
+                }
+            }
             transaction.commit();
+
         } catch (Exception e) {
             if (transaction != null && transaction.isActive()) {
                 transaction.rollback();

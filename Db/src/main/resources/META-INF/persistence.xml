@@ -6,16 +6,19 @@
     <persistence-unit name="org.example.testing">
         <description>Hibernate EntityManager Demo</description>
         <class>org.example.models.Teacher</class>
-        <class>org.example.models.Classroom</class>
         <class>org.example.models.Course</class>
+        <class>org.example.models.Student</class>
+        <class>org.example.models.StudentCourse</class>
+        <class>org.example.models.Room</class>
+
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/postgres"/>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/postgres1"/>
             <property name="javax.persistence.jdbc.user" value="postgres"/>
-            <property name="javax.persistence.jdbc.password" value="admin"/>
+            <property name="javax.persistence.jdbc.password" value="1234"/>
         </properties>
     </persistence-unit>
 </persistence>

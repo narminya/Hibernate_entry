@@ -1,32 +1,29 @@
 package org.example.models;
 
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "teachers")
-@Data
 @Builder
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-
+@Table(name = "teachers")
 public class Teacher {
-
     @Id
-    @GeneratedValue(strategy  = GenerationType.AUTO)
-    private UUID teacherID;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
 
-    @Column(name = "first_name")
-    private String firstName;
+    @Column(name = "teacher_name")
+    private String name;
 
-    @Column(name = "last_name")
-    private String lastName;
-
-//    @OneToMany(fetch = FetchType.EAGER)
-//    private List<Course> courses;
-
+    @OneToMany(mappedBy = "teacher", fetch = FetchType.EAGER)
+    List<Course> course;
 }
-

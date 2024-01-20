@@ -5,27 +5,31 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
-//@Entity
-//@Table(name = "courses")
-//@Data
-//@Builder
-//@NoArgsConstructor
-//@AllArgsConstructor
-public class Course {
 
+@Entity
+@Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "courses")
+public class Course {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID courseID;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
 
     @Column(name = "course_name")
-    private String courseName;
+    private String name;
+
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "teacher_id")
+    @ToString.Exclude
     private Teacher teacher;
 
-    @OneToMany ()
-    @JoinColumn(name = "room_id")
-    private List<Classroom> rooms;
+    @OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
+    List<StudentCourse> course;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @ToString.Exclude
+    private Room room;
 
 }

@@ -1,7 +1,6 @@
 package org.example.service.impl;
 
 import org.example.models.Course;
-import org.example.models.Teacher;
 import org.example.service.CourseService;
 
 import javax.persistence.EntityManager;
@@ -24,12 +23,11 @@ public class CourseServiceImpl implements CourseService {
             transaction = entityManager.getTransaction();
             transaction.begin();
 
-//            Course course = new Course();
-//            course.setCourseName(course.getCourseName());
-//            course.setTeacher(courseDto.getTeacher());
-//            course.setRooms(courseDto.getRooms());
-//
-//            entityManager.merge(course);
+            Course course = new Course();
+            course.setName(courseDto.getName());
+            course.setTeacher(courseDto.getTeacher());
+
+            entityManager.merge(course);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null && transaction.isActive()) {
